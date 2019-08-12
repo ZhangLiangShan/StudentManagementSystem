@@ -62,6 +62,8 @@ public:
     QPushButton *pushButton_confirm;
     QSpacerItem *horizontalSpacer;
     QPushButton *pushButton_cancel;
+    QButtonGroup *sexGroup;
+    QButtonGroup *insGroup;
 
     void setupUi(QDialog *addStuClass)
     {
@@ -121,6 +123,7 @@ public:
 
         line_id = new QLineEdit(addStuClass);
         line_id->setObjectName(QStringLiteral("line_id"));
+        line_id->setClearButtonEnabled(true);
 
         horizontalLayout_2->addWidget(line_id);
 
@@ -138,11 +141,15 @@ public:
         horizontalLayout_3->addWidget(label_4);
 
         rbtn_men = new QRadioButton(addStuClass);
+        sexGroup = new QButtonGroup(addStuClass);
+        sexGroup->setObjectName(QStringLiteral("sexGroup"));
+        sexGroup->addButton(rbtn_men);
         rbtn_men->setObjectName(QStringLiteral("rbtn_men"));
 
         horizontalLayout_3->addWidget(rbtn_men);
 
         rbtn_women = new QRadioButton(addStuClass);
+        sexGroup->addButton(rbtn_women);
         rbtn_women->setObjectName(QStringLiteral("rbtn_women"));
 
         horizontalLayout_3->addWidget(rbtn_women);
@@ -186,6 +193,8 @@ public:
 
         comboBox_department = new QComboBox(addStuClass);
         comboBox_department->setObjectName(QStringLiteral("comboBox_department"));
+        comboBox_department->setEditable(false);
+        comboBox_department->setDuplicatesEnabled(false);
 
         horizontalLayout_5->addWidget(comboBox_department);
 
@@ -211,21 +220,28 @@ public:
         gridLayout->setSpacing(6);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         checkBox_basketball = new QCheckBox(addStuClass);
+        insGroup = new QButtonGroup(addStuClass);
+        insGroup->setObjectName(QStringLiteral("insGroup"));
+        insGroup->setExclusive(false);
+        insGroup->addButton(checkBox_basketball);
         checkBox_basketball->setObjectName(QStringLiteral("checkBox_basketball"));
 
         gridLayout->addWidget(checkBox_basketball, 0, 0, 1, 1);
 
         checkBox_song = new QCheckBox(addStuClass);
+        insGroup->addButton(checkBox_song);
         checkBox_song->setObjectName(QStringLiteral("checkBox_song"));
 
         gridLayout->addWidget(checkBox_song, 0, 1, 1, 1);
 
         checkBox_jump = new QCheckBox(addStuClass);
+        insGroup->addButton(checkBox_jump);
         checkBox_jump->setObjectName(QStringLiteral("checkBox_jump"));
 
         gridLayout->addWidget(checkBox_jump, 1, 0, 1, 1);
 
         checkBox_rap = new QCheckBox(addStuClass);
+        insGroup->addButton(checkBox_rap);
         checkBox_rap->setObjectName(QStringLiteral("checkBox_rap"));
 
         gridLayout->addWidget(checkBox_rap, 1, 1, 1, 1);
@@ -261,6 +277,9 @@ public:
 
         retranslateUi(addStuClass);
 
+        comboBox_age->setCurrentIndex(0);
+
+
         QMetaObject::connectSlotsByName(addStuClass);
     } // setupUi
 
@@ -276,7 +295,24 @@ public:
         rbtn_men->setText(QApplication::translate("addStuClass", "\347\224\267", Q_NULLPTR));
         rbtn_women->setText(QApplication::translate("addStuClass", "\345\245\263", Q_NULLPTR));
         label_5->setText(QApplication::translate("addStuClass", "\345\271\264\351\276\204", Q_NULLPTR));
+        comboBox_age->clear();
+        comboBox_age->insertItems(0, QStringList()
+         << QApplication::translate("addStuClass", "18", Q_NULLPTR)
+         << QApplication::translate("addStuClass", "19", Q_NULLPTR)
+         << QApplication::translate("addStuClass", "20", Q_NULLPTR)
+         << QApplication::translate("addStuClass", "21", Q_NULLPTR)
+         << QApplication::translate("addStuClass", "22", Q_NULLPTR)
+         << QApplication::translate("addStuClass", "23", Q_NULLPTR)
+         << QApplication::translate("addStuClass", "24", Q_NULLPTR)
+        );
         label_6->setText(QApplication::translate("addStuClass", "\351\231\242\347\263\273", Q_NULLPTR));
+        comboBox_department->clear();
+        comboBox_department->insertItems(0, QStringList()
+         << QApplication::translate("addStuClass", "\346\234\272\346\242\260\345\267\245\347\250\213\345\255\246\351\231\242", Q_NULLPTR)
+         << QApplication::translate("addStuClass", "\350\256\241\347\256\227\346\234\272\345\255\246\351\231\242", Q_NULLPTR)
+         << QApplication::translate("addStuClass", "\345\234\237\346\234\250\345\267\245\347\250\213\345\255\246\351\231\242", Q_NULLPTR)
+         << QApplication::translate("addStuClass", "\346\235\220\346\226\231\345\255\246\351\231\242", Q_NULLPTR)
+        );
         label_7->setText(QApplication::translate("addStuClass", "\345\205\264\350\266\243", Q_NULLPTR));
         checkBox_basketball->setText(QApplication::translate("addStuClass", "\347\257\256\347\220\203", Q_NULLPTR));
         checkBox_song->setText(QApplication::translate("addStuClass", "\345\224\261", Q_NULLPTR));

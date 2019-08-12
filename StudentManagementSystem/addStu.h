@@ -12,7 +12,10 @@ public:
 
 private:
 	Ui::addStuClass ui;
+	
+	void clearUserInterface();
 
 private slots:
 	void getConfirm();
+
 };

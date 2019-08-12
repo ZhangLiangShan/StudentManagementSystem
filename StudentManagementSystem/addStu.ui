@@ -88,6 +88,9 @@
        <property name="placeholderText">
         <string>请输入学号(最少7位)</string>
        </property>
+       <property name="clearButtonEnabled">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
     </layout>
@@ -106,6 +109,9 @@
        <property name="text">
         <string>男</string>
        </property>
+       <attribute name="buttonGroup">
+        <string notr="true">sexGroup</string>
+       </attribute>
       </widget>
      </item>
      <item>
@@ -113,6 +119,9 @@
        <property name="text">
         <string>女</string>
        </property>
+       <attribute name="buttonGroup">
+        <string notr="true">sexGroup</string>
+       </attribute>
       </widget>
      </item>
     </layout>
@@ -127,7 +136,46 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBox_age"/>
+      <widget class="QComboBox" name="comboBox_age">
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>18</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>19</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>20</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>21</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>22</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>23</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>24</string>
+        </property>
+       </item>
+      </widget>
      </item>
      <item>
       <spacer name="horizontalSpacer_2">
@@ -154,7 +202,34 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBox_department"/>
+      <widget class="QComboBox" name="comboBox_department">
+       <property name="editable">
+        <bool>false</bool>
+       </property>
+       <property name="duplicatesEnabled">
+        <bool>false</bool>
+       </property>
+       <item>
+        <property name="text">
+         <string>机械工程学院</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>计算机学院</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>土木工程学院</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>材料学院</string>
+        </property>
+       </item>
+      </widget>
      </item>
      <item>
       <spacer name="horizontalSpacer_3">
@@ -187,6 +262,9 @@
          <property name="text">
           <string>篮球</string>
          </property>
+         <attribute name="buttonGroup">
+          <string notr="true">insGroup</string>
+         </attribute>
         </widget>
        </item>
        <item row="0" column="1">
@@ -194,6 +272,9 @@
          <property name="text">
           <string>唱</string>
          </property>
+         <attribute name="buttonGroup">
+          <string notr="true">insGroup</string>
+         </attribute>
         </widget>
        </item>
        <item row="1" column="0">
@@ -201,6 +282,9 @@
          <property name="text">
           <string>跳</string>
          </property>
+         <attribute name="buttonGroup">
+          <string notr="true">insGroup</string>
+         </attribute>
         </widget>
        </item>
        <item row="1" column="1">
@@ -208,6 +292,9 @@
          <property name="text">
           <string>Rap</string>
          </property>
+         <attribute name="buttonGroup">
+          <string notr="true">insGroup</string>
+         </attribute>
         </widget>
        </item>
       </layout>
@@ -252,4 +339,12 @@
   <include location="addStu.qrc"/>
  </resources>
  <connections/>
+ <buttongroups>
+  <buttongroup name="sexGroup"/>
+  <buttongroup name="insGroup">
+   <property name="exclusive">
+    <bool>false</bool>
+   </property>
+  </buttongroup>
+ </buttongroups>
 </ui>
