@@ -14,8 +14,9 @@ private:
 	Ui::addStuClass ui;
 	
 	void clearUserInterface();
-
+	void writeToFile(QString cnt);
 private slots:
 	void getConfirm();
+	void closeDialog();
 
 };
